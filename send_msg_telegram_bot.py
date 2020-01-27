@@ -6,7 +6,7 @@
 from telegram import Bot
 
 
-def joke(token, chat_id, text='Я сломался((('):
+def send(token, chat_id, text='Я сломался((('):
     tg_bot = Bot(token)
 
     tg_bot.send_message(chat_id=chat_id,
