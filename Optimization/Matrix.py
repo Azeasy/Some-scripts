@@ -34,9 +34,8 @@ class Matrix():
             a.append(b)
         return a
 
-    def __str__(self):
+    def __str__(self, spaces=3):
         # The function that pretty prints a matrix
-        spaces = 3
         a = self.matrix
         s = ""
         for i in range(len(a)):

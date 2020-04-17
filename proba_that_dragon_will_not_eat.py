@@ -23,7 +23,7 @@ def binomialCoefficient(n, k):
 # find nth catalan number in O(n) time
 def catalan(n):
     c = binomialCoefficient(2 * n, n)
-    return int(c / (n + 1)
+    return int(c / (n + 1))
 
 
 # The code above was contributed by Aditi Sharma
@@ -42,5 +42,5 @@ The problem:
 """
 # The following part counts a probability that
 # boys and girls from the problem disappear
-for i in range(25):
+for i in range(100):
     print(catalan(i) / 2 ** (2 * i))
