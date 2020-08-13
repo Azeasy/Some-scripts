@@ -1,4 +1,4 @@
-def short_division(dividend: int, divisor: int) -> int:
+def short_division(dividend: int, divisor: int) -> (int, int):
     """
     This function returns a digit - remainder of the division
     Note that it is called only for the short division.
@@ -11,7 +11,7 @@ def short_division(dividend: int, divisor: int) -> int:
     return quotient, remainder
 
 
-def long_division(dividend: int, divisor: int) -> int:
+def long_division(dividend: int, divisor: int) -> (int, int):
     """
     Long division function
     """
