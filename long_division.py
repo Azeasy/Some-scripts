@@ -15,6 +15,9 @@ def long_division(dividend: int, divisor: int) -> (int, int):
     """
     Long division function
     """
+    if divisor == 0:
+        raise ZeroDivisionError("The divisor must be non-zero integer")
+
     positive = (dividend > 0 and divisor > 0) or (dividend < 0 and divisor < 0)
 
     # We are finding a quotient that closer to 0 than others,
@@ -34,10 +37,13 @@ def long_division(dividend: int, divisor: int) -> (int, int):
         postfix = s[pointer:pointer + 1]
         remainder = int(str(remainder) + postfix)
 
+        # we are multiplying the quotint by 10
         if remainder < absdivisor:
             quotient += "0"
             pointer += 1
             continue
+
+        # just substruction-based division max value of quotint is 9
         temp_quotient, temp_remainder = short_division(remainder, absdivisor)
         quotient += str(temp_quotient)
         remainder = temp_remainder
@@ -46,3 +52,13 @@ def long_division(dividend: int, divisor: int) -> (int, int):
     if positive:
         return int(quotient), remainder
     return -int(quotient), -remainder
+
+
+if __name__ == "__main__":
+    while s := input():
+        a, b = [int(x) for x in s.split()]
+
+        print(a / b, "true value")
+        print()
+        p = long_division(a, b)
+        print(p, "result")
