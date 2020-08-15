@@ -20,7 +20,8 @@ def long_division(dividend: int,
     if divisor == 0:
         raise ZeroDivisionError("The divisor must be non-zero integer")
 
-    positive = (dividend > 0 and divisor > 0) or (dividend < 0 and divisor < 0)
+    positive = (dividend >= 0 and divisor > 0)\
+        or (dividend <= 0 and divisor < 0)
 
     # We are finding a quotient that closer to 0 than others,
     # not the least remainder (according to the Euclidean function) case
@@ -74,7 +75,6 @@ def long_division(dividend: int,
         temp_quotient, temp_remainder = short_division(remainder, absdivisor)
         quotient += str(temp_quotient)
         remainder = temp_remainder
-
         if remainder == 0 and period_started:
             period_step += 1
             break
@@ -89,7 +89,7 @@ def long_division(dividend: int,
             pointer += 1
 
         # three conditions to start the fractional part
-        if remainder < divisor and not period_started and pointer >= len(s):
+        if remainder < absdivisor and not period_started and pointer >= len(s):
             period_started = True
 
     if period_step != 0:
