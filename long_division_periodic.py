@@ -97,7 +97,7 @@ def long_division(dividend: int,
         quotient = f"{quotient[:slice_index:]}." +\
             f"{quotient[slice_index:]}"
 
-    quotient = quotient.strip("0")
+    quotient = quotient.lstrip("0")
     if quotient[0] == ".":
         quotient = "0" + quotient
 
