@@ -69,3 +69,13 @@ def long_multiplication(first: int, second: int) -> int:
     if positive:
         return int_ans
     return -int_ans
+
+
+if __name__ == "__main__":
+    while s := input():
+        a, b = [int(x) for x in s.split()]
+
+        print(a / b, "true value")
+        print()
+        p = long_multiplication(a, b)
+        print(p, "result")
