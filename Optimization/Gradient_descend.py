@@ -12,7 +12,7 @@ def diff(m: Matrix) -> Matrix:
     x1 = m.matrix[0][0]
     x2 = m.matrix[1][0]
     return Matrix([[16 + 2.56 * 2 * x1 * exp(2.56 * x1**2 + 2.6 * x2**2)],
-            [-0.4 + 2.6 * 2 * x2 * exp(2.56 * x1**2 + 2.6 * x2**2)]])
+                   [-0.4 + 2.6 * 2 * x2 * exp(2.56 * x1**2 + 2.6 * x2**2)]])
 
 
 def diff_2(m: Matrix) -> Matrix:
