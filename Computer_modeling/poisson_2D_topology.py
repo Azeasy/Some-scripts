@@ -137,11 +137,9 @@ if rank == 0:
     print(f"The partition is {border_y} by {border_x}")
 
     if not all(is_grid_ok):
-        text_1 = f"\nN - grid ({N}) is not divisible by {border_y} - partition coefficient" \
-            if not is_grid_ok[0] else ''
-        text_2 = f"\nM - grid variable with value of {M} is not divisible by {border_x} - partition coefficient" \
-            if not is_grid_ok[1] else ''
-        text_3 = f"\nInvalid grid {N} by {M} for the processors count {size}" if not is_grid_ok[2] else ''
+        text_1 = f"\nN - grid ({N}) is not divisible by {border_y} - partition coefficient" if not is_grid_ok[0] else ''
+        text_2 = f"\nM - grid ({M}) is not divisible by {border_x} - partition coefficient" if not is_grid_ok[1] else ''
+        text_3 = f"\nInvalid grid {border_y} by {border_x} for the processors count {size}" if not is_grid_ok[2] else ''
         raise IndexError(text_1 + text_2 + text_3)
 
 if all(is_grid_ok):
