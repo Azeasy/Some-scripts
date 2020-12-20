@@ -33,7 +33,8 @@ if not, it is the nearest values to the root, for example:
 etc.
 Above, the left side is the number of the columns (horizontal partition)
 
-Of course, you can set any other partition, you just add two numbers - columns and rows on the execution.
+Of course, you can set any other partition,
+you just add two numbers - columns and rows on the execution.
 
 Running (windows):
 mpiexec -n 6 python poisson_2D_topology.py
@@ -128,7 +129,9 @@ if len(sys.argv) >= 2:
     except IndexError:
         raise IndexError("Make sure that you gave two parameters for the grid")
 
-is_grid_ok = (N % border_y == 0, M % border_x == 0, border_x * border_y == size)
+is_grid_ok = (N % border_y == 0,
+              M % border_x == 0,
+              border_x * border_y == size)
 
 if rank == 0:
     print(f"The partition is {border_y} by {border_x}")
@@ -151,7 +154,9 @@ dx = 1 / N
 dy = 1 / M
 
 # This is to create default communicator and get the rank
-cartesian2d = comm.Create_cart(dims=[border_y, border_x], periods=[False, False], reorder=True)
+cartesian2d = comm.Create_cart(dims=[border_y, border_x],
+                               periods=[False, False],
+                               reorder=True)
 coord2d = cartesian2d.Get_coords(rank)
 
 left_rank, right_rank = cartesian2d.Shift(direction=0, disp=1)
