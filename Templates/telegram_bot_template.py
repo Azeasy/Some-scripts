@@ -21,11 +21,11 @@ BOT_TOKEN = ""
 
 # Start function with markdown and built-in async logic
 @run_async
-def start(bot, update):
+def start(update, context):
     text = "`Hello, World!`"
-    bot.send_message(chat_id=update.message.chat_id,
-                     text=text,
-                     parse_mode="Markdown")
+    update.message.reply_text(chat_id=update.message.chat_id,
+                              text=text,
+                              parse_mode="Markdown")
 
 
 def main():
