@@ -2,7 +2,7 @@ from math import cos, pi
 
 
 def func(x):
-    return cos(x)**2
+    return cos(x) ** 2
 
 
 def get_fib(limit):

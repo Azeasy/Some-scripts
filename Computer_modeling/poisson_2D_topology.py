@@ -66,7 +66,7 @@ accuracy = 0.0001
 # Define your f here:
 # Pxx + Pyy = -f
 def f(x, y):
-    return x**2
+    return x ** 2
 
 
 # Define your boundary conditions here:
@@ -79,7 +79,6 @@ left_inlets = [(0, 0.3), (0.6, 0.8)]
 right_inlets = []
 up_inlets = []
 down_inlets = [(0.3, 0.6)]
-
 
 l_outlet = []
 r_outlet = []
@@ -110,7 +109,6 @@ for item in down_inlets:
     d_inlet += [(M - 1, j) for j in range(int(item[0] * N), int(item[1] * N))]
 
 inlet = r_inlet + l_inlet + u_inlet + d_inlet
-
 
 border_x = 1
 for i in range(int(size ** 0.5), 0, -1):
@@ -214,6 +212,7 @@ elif coord2d[1] == border_x - 1:
 else:
     rank_arr = global_arr[top - 1: bottom + 1, left - 1: right + 1]
 
+
 # print(rank, left_rank, right_rank, top_rank, bottom_rank, rank_arr.shape)
 # print('  ', left, right, top, bottom, coord2d)
 #
@@ -252,9 +251,9 @@ def poisson_iter(arr):
     tmp = arr.copy()
     for i in range(1, len(arr) - 1):
         for j in range(1, len(arr[0]) - 1):
-            tmp[i][j] = ((arr[i][j + 1] + arr[i][j - 1]) / dx**2 +
-                         (arr[i + 1][j] + arr[i - 1][j]) / dy**2 +
-                         f((top + i + i_shift) * dx, (left + j + j_shift) * dy)) / (2 / dx**2 + 2 / dy**2)
+            tmp[i][j] = ((arr[i][j + 1] + arr[i][j - 1]) / dx ** 2 +
+                         (arr[i + 1][j] + arr[i - 1][j]) / dy ** 2 +
+                         f((top + i + i_shift) * dx, (left + j + j_shift) * dy)) / (2 / dx ** 2 + 2 / dy ** 2)
     return tmp
 
 

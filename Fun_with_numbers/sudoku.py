@@ -58,5 +58,6 @@ def main():
         a.append([int(x) for x in input().split()])
     print(sudoku(a))
 
+
 if __name__ == "__main__":
     main()

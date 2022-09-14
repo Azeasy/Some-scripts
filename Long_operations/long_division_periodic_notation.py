@@ -110,13 +110,13 @@ def long_division(dividend: int,
 
     if period_step != 0:
         slice_index = len(quotient) - period_step
-        quotient = f"{quotient[:slice_index:]}." +\
-            f"{quotient[slice_index:]}"
+        quotient = f"{quotient[:slice_index:]}." + \
+                   f"{quotient[slice_index:]}"
 
         if is_periodic:
             slice_index = len(quotient) - true_period
-            quotient = f"{quotient[:slice_index]}" +\
-                f"({quotient[slice_index:]})"
+            quotient = f"{quotient[:slice_index]}" + \
+                       f"({quotient[slice_index:]})"
 
     quotient = quotient.lstrip("0")
     if quotient[0] == ".":

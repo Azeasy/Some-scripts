@@ -2,10 +2,9 @@
 # Returns value of Binomial Coefficient C(n, k)
 
 
-def binomialCoefficient(n, k):
-
+def binomial_coefficient(n, k):
     # since C(n, k) = C(n, n - k)
-    if (k > n - k):
+    if k > n - k:
         k = n - k
 
     # initialize result
@@ -22,7 +21,7 @@ def binomialCoefficient(n, k):
 # A Binomial coefficient based function to
 # find nth catalan number in O(n) time
 def catalan(n):
-    c = binomialCoefficient(2 * n, n)
+    c = binomial_coefficient(2 * n, n)
     return int(c / (n + 1))
 
 

@@ -13,6 +13,7 @@ class Game():
 
     Find the strategy to always find the cat
     """
+
     def __init__(self, number_of_boxes):
         if number_of_boxes < 1:
             raise IndexError("Number of boxes could not be less than 1!")
@@ -34,11 +35,11 @@ class Game():
         randomly move cat on the next day
         """
         if self.cat_index == 0:
-            self.cat_index +=1
+            self.cat_index += 1
         elif self.cat_index == self.number_of_boxes - 1:
             self.cat_index -= 1
         else:
-            self.cat_index += (-1)**(randint(0, 1))
+            self.cat_index += (-1) ** (randint(0, 1))
         self.day += 1
         self.guess = None
 
@@ -72,6 +73,7 @@ class Player():
     """
     The player who knows the best strategy to won the Game game
     """
+
     def __init__(self, game):
         self.game = game
         self.guess = 1 if self.game.number_of_boxes > 1 else 0
@@ -103,6 +105,7 @@ class RandomPlayer(Player):
     """
     The player who plays at random to won the Game game
     """
+
     def __init__(self, game):
         super(RandomPlayer, self).__init__(game=game)
         self.guess = randint(0, self.game.number_of_boxes - 1)
@@ -124,7 +127,7 @@ if __name__ == "__main__":
     # playing many games
     statistics = {}
     for number_of_boxes in range(1, 20):
-        attempts = 10**2
+        attempts = 10 ** 2
         total_days = 0
         max_days = 1
         for i in range(attempts):
@@ -222,6 +225,3 @@ Results for 1 million runnings of every game:
   }
 }
 """
-
-
-

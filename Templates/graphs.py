@@ -17,7 +17,6 @@ def get_traces_and_layout(title: str,
     :return: data, layout
     """
 
-
     if len(labels) > 21:
         raise IndexError("Too many lines on one graph. Only 21 graphs are allowed")
 
@@ -53,45 +52,45 @@ def get_traces_and_layout(title: str,
 
     for i in range(len(x_data)):
         traces.append(dict(
-                x=x_data[i],
-                y=y_data[i],
-                mode='lines+markers',
-                line=dict(color=colors[i], width=line_size[i]),
-                connectgaps=True,
-                name=labels[i],
+            x=x_data[i],
+            y=y_data[i],
+            mode='lines+markers',
+            line=dict(color=colors[i], width=line_size[i]),
+            connectgaps=True,
+            name=labels[i],
         ))
 
     layout = dict(
-            xaxis=dict(
-                    showline=True,
-                    showgrid=True,
-                    showticklabels=True,
-                    linecolor='rgb(204, 204, 204)',
-                    linewidth=2,
-                    ticks='outside',
-                    tickcolor='rgb(204, 204, 204)',
-                    tickwidth=2,
-                    ticklen=5,
-                    tickfont=dict(
-                            family='Arial',
-                            size=12,
-                            color='rgb(82, 82, 82)',
-                    ),
+        xaxis=dict(
+            showline=True,
+            showgrid=True,
+            showticklabels=True,
+            linecolor='rgb(204, 204, 204)',
+            linewidth=2,
+            ticks='outside',
+            tickcolor='rgb(204, 204, 204)',
+            tickwidth=2,
+            ticklen=5,
+            tickfont=dict(
+                family='Arial',
+                size=12,
+                color='rgb(82, 82, 82)',
             ),
-            yaxis=dict(
-                    showgrid=True,
-                    zeroline=False,
-                    showline=False,
-                    showticklabels=False,
-            ),
-            autosize=True,
-            margin=dict(
-                    autoexpand=True,
-                    l=100,
-                    r=20,
-                    t=110,
-            ),
-            showlegend=False
+        ),
+        yaxis=dict(
+            showgrid=True,
+            zeroline=False,
+            showline=False,
+            showticklabels=False,
+        ),
+        autosize=True,
+        margin=dict(
+            autoexpand=True,
+            l=100,
+            r=20,
+            t=110,
+        ),
+        showlegend=False
     )
 
     annotations = []

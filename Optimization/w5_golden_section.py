@@ -2,7 +2,7 @@ from math import cos, pi, sqrt
 
 
 def f(x):
-    return cos(x)**2
+    return cos(x) ** 2
 
 
 def main():

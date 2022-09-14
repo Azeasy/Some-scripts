@@ -18,9 +18,9 @@ def len_of_vector(m: Matrix) -> float:
     v = m.matrix
     sum_ = 0
     for i in range(len(v)):
-        sum_ += v[i][0]**2
+        sum_ += v[i][0] ** 2
 
-    return sum_**(1 / 2)
+    return sum_ ** (1 / 2)
 
 
 def is_inside(m: Matrix, radius: float, center: Matrix) -> bool:
