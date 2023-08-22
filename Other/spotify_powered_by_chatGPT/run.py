@@ -13,40 +13,39 @@ def get_json(path):
         data = json.load(file)
 
     data = sorted(data, key=lambda x: x.get('msPlayed'))
-    i = -11
     return data
 
 
 def get_cum_data(data):
-    cum_data_dick = {}
+    cum_data_dict = {}
     for track_true in data:
         track = track_true.copy()
         track['msPlayed'] = track.get('msPlayed') +\
-                                cum_data_dick.get(track.get('trackName'),
+                                cum_data_dict.get(track.get('trackName'),
                                                   {'msPlayed': 0}).get('msPlayed')
-        cum_data_dick[track.get('trackName')] = track
+        cum_data_dict[track.get('trackName')] = track
 
     cum_data = []
-    for uniq_track in cum_data_dick:
-        cum_data += cum_data_dick[uniq_track],
+    for uniq_track in cum_data_dict:
+        cum_data += cum_data_dict[uniq_track],
 
     cum_data = sorted(cum_data, key=lambda x: x.get('msPlayed'))
     return cum_data
 
 
 def get_cum_data_by_artist(data):
-    cum_data_dick = {}
+    cum_data_dict = {}
     for track_true in data:
         track = track_true.copy()
         track['msPlayed'] = track.get('msPlayed') +\
-                                cum_data_dick.get(track.get('artistName'),
+                                cum_data_dict.get(track.get('artistName'),
                                                   {'msPlayed': 0}).get('msPlayed')
         del track['trackName']
-        cum_data_dick[track.get('artistName')] = track
+        cum_data_dict[track.get('artistName')] = track
 
     cum_data = []
-    for uniq_track in cum_data_dick:
-        cum_data += cum_data_dick[uniq_track],
+    for uniq_track in cum_data_dict:
+        cum_data += cum_data_dict[uniq_track],
 
     cum_data = sorted(cum_data, key=lambda x: x.get('msPlayed'))
     return cum_data
