@@ -1,7 +1,9 @@
-def get_traces_and_layout(title: str,
-                          labels: list[str],
-                          x_data: list[list],
-                          y_data: list[list]):
+def get_traces_and_layout(
+        title: str,
+        labels: list[str],
+        x_data: list[list],
+        y_data: list[list]
+        ):
     """
     This function converts regular lists to the data and layout from the dash module.
     Just send label, x axis data and y axis data respectively for each graph.
@@ -18,7 +20,8 @@ def get_traces_and_layout(title: str,
     """
 
     if len(labels) > 21:
-        raise IndexError("Too many lines on one graph. Only 21 graphs are allowed")
+        raise IndexError(
+            "Too many lines on one graph. Only 21 graphs are allowed")
 
     if not (len(labels) == len(x_data) == len(y_data)):
         raise IndexError("All parameters must be of the same length")

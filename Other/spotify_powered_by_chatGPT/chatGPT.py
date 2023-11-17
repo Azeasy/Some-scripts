@@ -2,17 +2,18 @@
 Same script but I asked chatGPT to refactor it and write some comments
 """
 
-
 import json
 from run import get_cum_data_by_artist
 
 import os
 
+
 def read_json(folder_path):
     """Read and return data from all json files in a folder"""
     data = []
     for file_name in os.listdir(folder_path):
-        if file_name.startswith("StreamingHistory") and file_name.endswith(".json"):
+        if file_name.startswith("StreamingHistory") and file_name.endswith(
+                ".json"):
             file_path = os.path.join(folder_path, file_name)
             with open(file_path, 'r') as file:
                 data += json.load(file)
@@ -34,9 +35,11 @@ def group_and_sort(data, key):
         group[item[key]] = item
     return sorted(group.values(), key=lambda x: x['msPlayed'])
 
+
 def print_data(data):
     """Print data in json format with indentation"""
     print(json.dumps(data, indent=4))
+
 
 if __name__ == "__main__":
     folder_path = './'

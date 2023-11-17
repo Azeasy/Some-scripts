@@ -78,7 +78,7 @@ class Partition():
             return 1
 
         return Partition.partition_count_func(n, m - 1) + \
-               Partition.partition_count_func(n - m, m)
+            Partition.partition_count_func(n - m, m)
 
     # TODO: think about making a partition based on the above recursion.
     # It can reduce the time complexity

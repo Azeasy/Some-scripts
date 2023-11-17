@@ -135,9 +135,12 @@ if rank == 0:
     print(f"The partition is {border_y} by {border_x}")
 
     if not all(is_grid_ok):
-        text_1 = f"\nN - grid ({N}) is not divisible by {border_y} - partition coefficient" if not is_grid_ok[0] else ''
-        text_2 = f"\nM - grid ({M}) is not divisible by {border_x} - partition coefficient" if not is_grid_ok[1] else ''
-        text_3 = f"\nInvalid grid {border_y} by {border_x} for the processors count {size}" if not is_grid_ok[2] else ''
+        text_1 = f"\nN - grid ({N}) is not divisible by {border_y} - partition coefficient" if not \
+        is_grid_ok[0] else ''
+        text_2 = f"\nM - grid ({M}) is not divisible by {border_x} - partition coefficient" if not \
+        is_grid_ok[1] else ''
+        text_3 = f"\nInvalid grid {border_y} by {border_x} for the processors count {size}" if not \
+        is_grid_ok[2] else ''
         raise IndexError(text_1 + text_2 + text_3)
 
 if all(is_grid_ok):
@@ -253,7 +256,8 @@ def poisson_iter(arr):
         for j in range(1, len(arr[0]) - 1):
             tmp[i][j] = ((arr[i][j + 1] + arr[i][j - 1]) / dx ** 2 +
                          (arr[i + 1][j] + arr[i - 1][j]) / dy ** 2 +
-                         f((top + i + i_shift) * dx, (left + j + j_shift) * dy)) / (2 / dx ** 2 + 2 / dy ** 2)
+                         f((top + i + i_shift) * dx,
+                           (left + j + j_shift) * dy)) / (2 / dx ** 2 + 2 / dy ** 2)
     return tmp
 
 
@@ -359,10 +363,12 @@ else:
 
     for i in range(border_x):
         for j in range(1, border_y):
-            line_to_concat[i] = np.concatenate((line_to_concat[i], to_concat[i][j]), axis=1)
+            line_to_concat[i] = np.concatenate(
+                (line_to_concat[i], to_concat[i][j]), axis=1)
 
     for i in range(1, border_x):
-        line_to_concat[0] = np.concatenate((line_to_concat[0], line_to_concat[i]), axis=0)
+        line_to_concat[0] = np.concatenate(
+            (line_to_concat[0], line_to_concat[i]), axis=0)
 
     P = line_to_concat[0]
 

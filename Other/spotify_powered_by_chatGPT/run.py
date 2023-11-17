@@ -8,6 +8,7 @@ import json
 
 path = 'StreamingHistory0.json'
 
+
 def get_json(path):
     with open(path, 'r') as file:
         data = json.load(file)
@@ -20,9 +21,9 @@ def get_cum_data(data):
     cum_data_dict = {}
     for track_true in data:
         track = track_true.copy()
-        track['msPlayed'] = track.get('msPlayed') +\
-                                cum_data_dict.get(track.get('trackName'),
-                                                  {'msPlayed': 0}).get('msPlayed')
+        track['msPlayed'] = track.get('msPlayed') + \
+                            cum_data_dict.get(track.get('trackName'),
+                                              {'msPlayed': 0}).get('msPlayed')
         cum_data_dict[track.get('trackName')] = track
 
     cum_data = []
@@ -37,9 +38,9 @@ def get_cum_data_by_artist(data):
     cum_data_dict = {}
     for track_true in data:
         track = track_true.copy()
-        track['msPlayed'] = track.get('msPlayed') +\
-                                cum_data_dict.get(track.get('artistName'),
-                                                  {'msPlayed': 0}).get('msPlayed')
+        track['msPlayed'] = track.get('msPlayed') + \
+                            cum_data_dict.get(track.get('artistName'),
+                                              {'msPlayed': 0}).get('msPlayed')
         del track['trackName']
         cum_data_dict[track.get('artistName')] = track
 

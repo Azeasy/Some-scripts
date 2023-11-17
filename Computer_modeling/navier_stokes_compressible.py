@@ -113,78 +113,78 @@ def tau_yy(U, V, mu, i, j, step='pred'):
 
 def E_x_pred(Rho, U, V, P, mu, i, j):
     return (Rho[i][j] * U[i][j] ** 2) + P[i][j] - \
-           tau_xx(U, V, mu, i, j, step='pred')
+        tau_xx(U, V, mu, i, j, step='pred')
 
 
 def F_x_pred(Rho, U, V, mu, i, j):
     return (Rho[i][j] * U[i][j] * V[i][j]) - \
-           mu * ((U[i][j] - U[i][j - 1]) / dy +
-                 (V[i + 1][j] - V[i - 1][j]) / (2 * dx))
+        mu * ((U[i][j] - U[i][j - 1]) / dy +
+              (V[i + 1][j] - V[i - 1][j]) / (2 * dx))
 
 
 def E_y_pred(Rho, U, V, mu, i, j):
     return (Rho[i][j] * U[i][j] * V[i][j]) - \
-           mu * ((U[i][j + 1] - U[i][j - 1]) / (2 * dy) +
-                 (V[i][j] - V[i - 1][j]) / dx)
+        mu * ((U[i][j + 1] - U[i][j - 1]) / (2 * dy) +
+              (V[i][j] - V[i - 1][j]) / dx)
 
 
 def F_y_pred(Rho, U, V, P, mu, i, j):
     return (Rho[i][j] * V[i][j] ** 2) + P[i][j] - \
-           tau_yy(U, V, mu, i, j, step='pred')
+        tau_yy(U, V, mu, i, j, step='pred')
 
 
 def E_x_corr(Rho, U, V, P, mu, i, j):
     return (Rho[i][j] * U[i][j] ** 2) + P[i][j] - \
-           tau_xx(U, V, mu, i, j, step='corr')
+        tau_xx(U, V, mu, i, j, step='corr')
 
 
 def F_x_corr(Rho, U, V, mu, i, j):
     return (Rho[i][j] * U[i][j] * V[i][j]) - \
-           mu * ((U[i][j + 1] - U[i][j]) / dy +
-                 (V[i + 1][j] - V[i - 1][j]) / (2 * dx))
+        mu * ((U[i][j + 1] - U[i][j]) / dy +
+              (V[i + 1][j] - V[i - 1][j]) / (2 * dx))
 
 
 def E_y_corr(Rho, U, V, mu, i, j):
     return (Rho[i][j] * U[i][j] * V[i][j]) - \
-           mu * ((U[i][j + 1] - U[i][j - 1]) / (2 * dy) +
-                 (V[i + 1][j] - V[i][j]) / dx)
+        mu * ((U[i][j + 1] - U[i][j - 1]) / (2 * dy) +
+              (V[i + 1][j] - V[i][j]) / dx)
 
 
 def F_y_corr(Rho, U, V, P, mu, i, j):
     return (Rho[i][j] * V[i][j] ** 2) + P[i][j] - \
-           tau_yy(U, V, mu, i, j, step='corr')
+        tau_yy(U, V, mu, i, j, step='corr')
 
 
 def E_5_pred(E_t, P, U, V, T, mu, i, j):
     return (E_t[i][j] + P[i][j]) * U[i][j] - \
-           U[i][j] * tau_xx(U, V, mu, i, j, step='pred') - \
-           V[i][j] * (mu * ((U[i][j + 1] - U[i][j - 1]) / (2 * dy) +
-                            (V[i][j] - V[i - 1][j]) / dx)) - \
-           k_(mu) * (T[i][j] - T[i - 1][j]) / dx
+        U[i][j] * tau_xx(U, V, mu, i, j, step='pred') - \
+        V[i][j] * (mu * ((U[i][j + 1] - U[i][j - 1]) / (2 * dy) +
+                         (V[i][j] - V[i - 1][j]) / dx)) - \
+        k_(mu) * (T[i][j] - T[i - 1][j]) / dx
 
 
 def F_5_pred(E_t, P, U, V, T, mu, i, j):
     return (E_t[i][j] + P[i][j]) * V[i][j] - \
-           U[i][j] * (mu * ((U[i][j] - U[i][j - 1]) / dy +
-                            (V[i + 1][j] - V[i - 1][j]) / (2 * dx))) - \
-           V[i][j] * tau_yy(U, V, mu, i, j, step='pred') - \
-           k_(mu) * (T[i][j] - T[i][j - 1]) / dy
+        U[i][j] * (mu * ((U[i][j] - U[i][j - 1]) / dy +
+                         (V[i + 1][j] - V[i - 1][j]) / (2 * dx))) - \
+        V[i][j] * tau_yy(U, V, mu, i, j, step='pred') - \
+        k_(mu) * (T[i][j] - T[i][j - 1]) / dy
 
 
 def E_5_corr(E_t, P, U, V, T, mu, i, j):
     return (E_t[i][j] + P[i][j]) * U[i][j] - \
-           U[i][j] * tau_xx(U, V, mu, i, j, step='corr') - \
-           V[i][j] * (mu * ((U[i][j + 1] - U[i][j - 1]) / (2 * dy) +
-                            (V[i + 1][j] - V[i][j]) / dx)) - \
-           k_(mu) * (T[i + 1][j] - T[i][j]) / dx
+        U[i][j] * tau_xx(U, V, mu, i, j, step='corr') - \
+        V[i][j] * (mu * ((U[i][j + 1] - U[i][j - 1]) / (2 * dy) +
+                         (V[i + 1][j] - V[i][j]) / dx)) - \
+        k_(mu) * (T[i + 1][j] - T[i][j]) / dx
 
 
 def F_5_corr(E_t, P, U, V, T, mu, i, j):
     return (E_t[i][j] + P[i][j]) * V[i][j] - \
-           U[i][j] * (mu * ((U[i][j + 1] - U[i][j]) / dy +
-                            (V[i + 1][j] - V[i - 1][j]) / (2 * dx))) - \
-           V[i][j] * tau_yy(U, V, mu, i, j, step='corr') - \
-           k_(mu) * (T[i][j + 1] - T[i][j]) / dy
+        U[i][j] * (mu * ((U[i][j + 1] - U[i][j]) / dy +
+                         (V[i + 1][j] - V[i - 1][j]) / (2 * dx))) - \
+        V[i][j] * tau_yy(U, V, mu, i, j, step='corr') - \
+        k_(mu) * (T[i][j + 1] - T[i][j]) / dy
 
 
 def mu_(T):

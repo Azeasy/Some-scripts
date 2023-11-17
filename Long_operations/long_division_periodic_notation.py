@@ -11,9 +11,11 @@ def short_division(dividend: int, divisor: int) -> (int, int):
     return quotient, remainder
 
 
-def long_division(dividend: int,
-                  divisor: int,
-                  number_of_digits=214748364) -> (int, int):
+def long_division(
+        dividend: int,
+        divisor: int,
+        number_of_digits=214748364
+        ) -> (int, int):
     """
     Long division function
     """
