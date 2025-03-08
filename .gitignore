@@ -3,3 +3,7 @@ __*
 __pycache__
 venv
 .DS_Store
+del.py
+StreamingHistory*
+spotify.db
+
