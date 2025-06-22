@@ -11,17 +11,19 @@ def short_division(dividend: int, divisor: int) -> (int, int):
     return quotient, remainder
 
 
-def long_division(dividend: int,
-                  divisor: int,
-                  number_of_digits=32) -> (int, int):
+def long_division(
+        dividend: int,
+        divisor: int,
+        number_of_digits=32
+        ) -> (int, int):
     """
     Long division function
     """
     if divisor == 0:
         raise ZeroDivisionError("The divisor must be non-zero integer")
 
-    positive = (dividend >= 0 and divisor > 0)\
-        or (dividend <= 0 and divisor < 0)
+    positive = (dividend >= 0 and divisor > 0) \
+               or (dividend <= 0 and divisor < 0)
 
     # We are finding a quotient that closer to 0 than others,
     # not the least remainder (according to the Euclidean function) case
@@ -94,8 +96,8 @@ def long_division(dividend: int,
 
     if period_step != 0:
         slice_index = len(quotient) - period_step
-        quotient = f"{quotient[:slice_index:]}." +\
-            f"{quotient[slice_index:]}"
+        quotient = f"{quotient[:slice_index:]}." + \
+                   f"{quotient[slice_index:]}"
 
     quotient = quotient.lstrip("0")
     if quotient[0] == ".":

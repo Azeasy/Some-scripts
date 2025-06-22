@@ -1,4 +1,5 @@
 import math
+
 PI = math.pi
 sin = math.sin
 interval_start = -PI / 2
@@ -10,7 +11,7 @@ e = h / 100
 
 
 def func(u):
-    return sin(u)**2
+    return sin(u) ** 2
 
 
 def main():

@@ -27,9 +27,9 @@ class Partition():
         temp = []
         for i in range(k):
             if i == 0:
-                temp.append(f'for v{i} in range(1, {(n//k) + 1})')
+                temp.append(f'for v{i} in range(1, {(n // k) + 1})')
             else:
-                temp.append(f'for v{i} in range(v{i-1}, {n})')
+                temp.append(f'for v{i} in range(v{i - 1}, {n})')
         return ' '.join(temp)
 
     @staticmethod
@@ -84,6 +84,6 @@ class Partition():
     # It can reduce the time complexity
 
 # for i in range(17):
-    # b = Partition.partition_count_func(i, i)
-    # b = Partition(i)
-    # print(b)
+# b = Partition.partition_count_func(i, i)
+# b = Partition(i)
+# print(b)

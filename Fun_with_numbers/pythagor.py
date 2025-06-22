@@ -2,7 +2,7 @@
 
 
 def generate(a, b):
-    return abs(a**2 - b**2), 2 * a * b, abs(a**2 + b**2)
+    return abs(a ** 2 - b ** 2), 2 * a * b, abs(a ** 2 + b ** 2)
 
 
 for i in range(1, 10):

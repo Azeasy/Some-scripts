@@ -127,8 +127,8 @@ class Matrix():
 
         determinant = 0
         for c in range(len(m)):
-            determinant += ((-1)**c) * m[0][c] \
-                * (self.getMatrixMinor(0, c)).getMatrixDeternminant()
+            determinant += ((-1) ** c) * m[0][c] \
+                           * (self.getMatrixMinor(0, c)).getMatrixDeternminant()
         return determinant
 
     def getInverseMatrix(self):
@@ -145,7 +145,7 @@ class Matrix():
             cofactorRow = []
             for c in range(len(m)):
                 minor = self.getMatrixMinor(r, c)
-                cofactorRow.append(((-1)**(r + c)) *
+                cofactorRow.append(((-1) ** (r + c)) *
                                    minor.getMatrixDeternminant())
             cofactors.append(cofactorRow)
         cofactors = Matrix(cofactors)
@@ -170,7 +170,7 @@ class Matrix():
             cofactorRow = []
             for c in range(len(m)):
                 minor = self.getMatrixMinor(r, c)
-                cofactorRow.append(((-1)**(r + c)) *
+                cofactorRow.append(((-1) ** (r + c)) *
                                    minor.getMatrixDeternminant())
             cofactors.append(cofactorRow)
         cofactors = Matrix(cofactors)

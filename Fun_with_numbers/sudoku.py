@@ -23,7 +23,7 @@ def squares(a, i_, j_):
 
 
 def sudoku(a):
-    # Check whether or not there are unique elemets in the each row
+    # Check whether there are unique elements in each row
     for i in range(9):
         if len(set(a[i])) < 9:
             return False
@@ -40,7 +40,7 @@ def sudoku(a):
         if len(set(transposed_a[i])) < 9:
             return False
 
-    # Partition of the each square to the rows
+    # Partition of each square to the rows
     for i in range(3):
         for j in range(3):
             square_in_row = squares(a, i, j)
@@ -57,6 +57,7 @@ def main():
     for i in range(9):
         a.append([int(x) for x in input().split()])
     print(sudoku(a))
+
 
 if __name__ == "__main__":
     main()
